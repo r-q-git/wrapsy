@@ -1,0 +1,36 @@
+<div class="mb-6">
+  <label class="block text-xs font-bold uppercase text-gray-500 mb-2"
+    >Shapes</label
+  >
+
+  <div
+    id="shapeCarousel"
+    class="flex gap-3 overflow-x-auto py-2 no-scrollbar"
+    *ngIf="shapes$ | async as shapes"
+  >
+    <div
+      *ngFor="let s of shapes"
+      (click)="selectShape(s.id)"
+      [class.shape-active]="(config$ | async)?.selectedShapeId === s.id"
+      class="flex-shrink-0 w-16 h-16 border-2 rounded-lg cursor-pointer flex items-center justify-center p-1.5 transition-all border-slate-100"
+    >
+      <svg viewBox="0 0 300 300" class="w-full h-full">
+        <path [attr.d]="s.d" fill="none" stroke="#ff9100" stroke-width="15" />
+      </svg>
+    </div>
+  </div>
+
+  <button
+    (click)="svgInput.click()"
+    class="mt-2 w-full py-2 border-2 border-slate-200 rounded-xl text-[10px] font-bold uppercase text-slate-400 hover:border-[#ff9100] hover:text-[#ff9100] transition-all"
+  >
+    Upload SVG
+  </button>
+  <input
+    #svgInput
+    type="file"
+    class="hidden"
+    accept=".svg"
+    (change)="handleSvgUpload($event)"
+  />
+</div>

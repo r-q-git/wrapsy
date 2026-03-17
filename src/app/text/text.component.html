@@ -1,0 +1,43 @@
+<div class="space-y-4" *ngIf="config$ | async as c">
+  <div>
+    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Font Family</label>
+    <select [value]="c.fontFamily" (change)="update('fontFamily', $event)"
+            class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm bg-white">
+      <option *ngFor="let f of fonts" [value]="f.value">{{f.name}}</option>
+    </select>
+  </div>
+
+  <div class="grid grid-cols-2 gap-3">
+    <div>
+      <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Weight</label>
+      <select [value]="c.fontWeight" (change)="update('fontWeight', $event)"
+              class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm bg-white">
+        <option value="100">Thin</option>
+        <option value="400">Regular</option>
+        <option value="700">Bold</option>
+        <option value="900">Extra Bold</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Style</label>
+      <select [value]="c.fontStyle" (change)="update('fontStyle', $event)"
+              class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm bg-white">
+        <option value="normal">Normal</option>
+        <option value="italic">Italic</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-3">
+    <div>
+      <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Letter Spacing</label>
+      <input type="number" [value]="c.letterSpacing" (input)="update('letterSpacing', $event)"
+             class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm" />
+    </div>
+    <div>
+      <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Word Spacing</label>
+      <input type="number" [value]="c.wordSpacing" (input)="update('wordSpacing', $event)"
+             class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+[
+  { "name": "Montserrat", "value": "'Montserrat', sans-serif" },
+  { "name": "Playfair Display", "value": "'Playfair Display', serif" },
+  { "name": "Roboto", "value": "'Roboto', sans-serif" },
+  { "name": "Dancing Script", "value": "'Dancing Script', cursive" },
+  { "name": "Fira Code", "value": "'Fira Code', monospace" },
+  { "name": "Bungee Spice", "value": "'Bungee Spice', cursive" },
+  { "name": "Open Sans", "value": "'Open Sans', sans-serif" },
+  { "name": "Lora", "value": "'Lora', serif" },
+  { "name": "Pacifico", "value": "'Pacifico', cursive" },
+  { "name": "Permanent Marker", "value": "'Permanent Marker', cursive" }
+]

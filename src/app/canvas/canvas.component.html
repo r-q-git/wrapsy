@@ -1,0 +1,42 @@
+<main class="flex-1 bg-slate-100 flex items-center justify-center p-10 relative">
+  <div id="canvasBox" class="canvas-target w-[600px] h-[600px] bg-white rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden p-8 border-4 border-white">
+    
+    <svg *ngIf="state$ | async as state" 
+         id="mainSvg"
+         [attr.viewBox]="'0 0 ' + state.config.vbWidth + ' ' + state.config.vbHeight" 
+         xmlns="http://www.w3.org/2000/svg" 
+         class="w-full h-full">
+      
+      <defs>
+        <path id="warp_path" [attr.d]="getCurrentPath(state.shapes, state.config.selectedShapeId)" />
+      </defs>
+
+      <path *ngIf="state.config.showPath"
+            id="guide"
+            [attr.d]="getCurrentPath(state.shapes, state.config.selectedShapeId)"
+            fill="none"
+            [attr.stroke]="state.config.pathColor"
+            stroke-width="1"
+            [attr.stroke-dasharray]="getDashArray(state.config.pathStrokeType)" />
+
+      <text [attr.dy]="state.config.textDy"
+            [attr.fill]="state.config.textColor"
+            [attr.stroke]="state.config.textColor"
+            [attr.stroke-width]="state.config.strokeWidth"
+            [attr.text-anchor]="state.config.textAnchor"
+            [style.font-size.px]="state.config.fontSize"
+            [style.font-family]="state.config.fontFamily"
+            [style.font-weight]="state.config.fontWeight"
+            [style.font-style]="state.config.fontStyle"
+            [style.letter-spacing.px]="state.config.letterSpacing"
+            [style.word-spacing.px]="state.config.wordSpacing"
+            (click)="triggerEditor($event)"
+            class="cursor-pointer">
+        <textPath href="#warp_path" [attr.startOffset]="state.config.startOffset + '%'">
+          {{ state.config.userInput }}
+        </textPath>
+      </text>
+    </svg>
+  </div>
+</main>
+<app-editor></app-editor>
