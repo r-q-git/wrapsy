@@ -12,6 +12,7 @@ import { EditorComponent } from './editor/editor.component';
 import { MainComponent } from './main/main.component';
 
 import { FormsModule } from '@angular/forms';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     CanvasComponent,
     EditorComponent,
     MainComponent,
+    ToastComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

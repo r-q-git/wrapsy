@@ -1,23 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ShapeService } from '../core/services/shape.service';
+import { ProjectExportService } from '../core/services/project-export.service';
+import { ToastComponent } from '../toast/toast.component';
+import { ToastService } from '../core/services/toast.service';
 
 @Component({
   selector: 'app-add-to-project',
-  templateUrl: './add-to-project.component.html'
+  templateUrl: './add-to-project.component.html',
 })
 export class AddToProjectComponent {
+  @ViewChild(ToastComponent) toast!: ToastComponent;
   config$ = this.shapeService.config$;
 
-  constructor(private shapeService: ShapeService) {}
+  constructor(
+    private shapeService: ShapeService,
+    private projectExport: ProjectExportService,
+    private toastService: ToastService,
+  ) {}
 
   private getExportSvg(): string {
     const config = this.shapeService.getCurrentConfig();
-    const svgEl = document.getElementById('mainSvg')?.cloneNode(true) as HTMLElement;
-    
+    const svgEl = document
+      .getElementById('mainSvg')
+      ?.cloneNode(true) as HTMLElement;
+
     if (svgEl) {
       svgEl.setAttribute('width', config.exportWidth.toString());
       svgEl.setAttribute('height', config.exportHeight.toString());
-      
+
       // Remove guide path if hidden
       if (!config.showPath) {
         svgEl.querySelector('#guide')?.remove();
@@ -34,17 +44,17 @@ export class AddToProjectComponent {
     link.href = URL.createObjectURL(blob);
     link.download = `wrapsy-export-${Date.now()}.svg`;
     link.click();
+    this.toastService.show('SVG Downloaded Successfully!');
   }
 
   copyBase64() {
     const svgData = this.getExportSvg();
     const base64 = `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svgData)))}`;
     navigator.clipboard.writeText(base64);
-    alert('Base64 Copied!');
+    this.toastService.show('Base64 Copied!');
   }
 
   addToProject() {
-    console.log('Pushing to project database...', this.shapeService.getCurrentConfig());
-    // Logic for your specific project integration goes here
+    this.projectExport.exportCurrentDrawing();
   }
 }
