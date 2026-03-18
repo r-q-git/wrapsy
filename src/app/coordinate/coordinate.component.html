@@ -1,29 +1,58 @@
-<div class="space-y-4 pt-4 border-t border-slate-100" *ngIf="config$ | async as c">
-  <label class="block text-xs font-bold uppercase text-gray-500">Coordinate System (Viewport)</label>
+<div
+  class="space-y-4 pt-4 border-t border-slate-200"
+  *ngIf="config$ | async as c"
+>
+  <label class="block text-xs font-bold uppercase text-gray-500"
+    >Coordinate System (Viewport)</label
+  >
   <div class="grid grid-cols-2 gap-2">
-    <div>
-      <span class="text-[10px] text-gray-400">ViewBox W</span>
-      <input type="number" [value]="c.vbWidth" (input)="update('vbWidth', $event)"
-             class="w-full border rounded-lg p-1.5 text-xs" />
+    <div class="flex flex-col items-start justify-center gap-2">
+      <span class="block text-xs font-bold uppercase text-gray-500"
+        >ViewBox W</span
+      >
+      <input
+        type="number"
+        [value]="c.vbWidth"
+        (input)="update('vbWidth', $event)"
+        class="w-full border rounded-lg p-1.5 text-xs"
+      />
     </div>
-    <div>
-      <span class="text-[10px] text-gray-400">ViewBox H</span>
-      <input type="number" [value]="c.vbHeight" (input)="update('vbHeight', $event)"
-             class="w-full border rounded-lg p-1.5 text-xs" />
+    <div class="flex flex-col items-start justify-center gap-2">
+      <span class="block text-xs font-bold uppercase text-gray-500"
+        >ViewBox H</span
+      >
+      <input
+        type="number"
+        [value]="c.vbHeight"
+        (input)="update('vbHeight', $event)"
+        class="w-full border rounded-lg p-1.5 text-xs"
+      />
     </div>
   </div>
 
-  <label class="block text-xs font-bold uppercase text-gray-500 mt-2">Export Size</label>
+  <label class="block text-xs font-bold uppercase text-gray-500 mt-2"
+    >Export Size</label
+  >
   <div class="grid grid-cols-2 gap-2">
-    <div>
-      <span class="text-[10px] text-gray-400">Width</span>
-      <input type="number" [value]="c.exportWidth" (input)="update('exportWidth', $event)"
-             class="w-full border rounded-lg p-1.5 text-xs" />
+    <div class="flex flex-col items-start justify-center gap-2">
+      <span class="block text-xs font-bold uppercase text-gray-500">Width</span>
+      <input
+        type="number"
+        [value]="c.exportWidth"
+        (input)="update('exportWidth', $event)"
+        class="w-full border rounded-lg p-1.5 text-xs"
+      />
     </div>
-    <div>
-      <span class="text-[10px] text-gray-400">Height</span>
-      <input type="number" [value]="c.exportHeight" (input)="update('exportHeight', $event)"
-             class="w-full border rounded-lg p-1.5 text-xs" />
+    <div class="flex flex-col items-start justify-center gap-2">
+      <span class="block text-xs font-bold uppercase text-gray-500"
+        >Height</span
+      >
+      <input
+        type="number"
+        [value]="c.exportHeight"
+        (input)="update('exportHeight', $event)"
+        class="w-full border rounded-lg p-1.5 text-xs"
+      />
     </div>
   </div>
 </div>

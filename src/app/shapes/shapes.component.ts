@@ -1,4 +1,3 @@
-// src/app/shapes/shapes.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ShapeService } from '../core/services/shape.service';
 
@@ -13,7 +12,6 @@ export class ShapesComponent implements OnInit {
   constructor(private shapeService: ShapeService) {}
 
   ngOnInit() {
-    // Initially load shapes from your JSON/Assets
     fetch('assets/shapes.json')
       .then(res => res.json())
       .then(data => this.shapeService.setShapes(data));
@@ -31,14 +29,12 @@ export class ShapesComponent implements OnInit {
     reader.onload = (e: any) => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(e.target.result, "image/svg+xml");
-      
-      // Extract text content if available
+ 
       const textEl = doc.querySelector("text") || doc.querySelector("tspan");
       if (textEl) {
         this.shapeService.updateConfig({ userInput: textEl.textContent?.trim() || '' });
       }
 
-      // Extract path and add to carousel
       const path = doc.querySelector("path");
       if (path) {
         const newId = "custom-" + Date.now();

@@ -1,4 +1,3 @@
-// src/app/path/path.component.ts
 import { Component } from '@angular/core';
 import { ShapeService } from '../core/services/shape.service';
 

@@ -1,4 +1,3 @@
-// src/app/add-to-project/add-to-project.component.ts
 import { Component } from '@angular/core';
 import { ShapeService } from '../core/services/shape.service';
 

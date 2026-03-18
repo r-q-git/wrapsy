@@ -1,5 +1,5 @@
-<div class="space-y-4" *ngIf="config$ | async as c">
-  <div>
+<div class="space-y-6 my-5 pt-4 border-t border-slate-200" *ngIf="config$ | async as c">
+  <div class="flex flex-col items-start justify-center gap-1">
     <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Font Family</label>
     <select [value]="c.fontFamily" (change)="update('fontFamily', $event)"
             class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm bg-white">
@@ -8,7 +8,20 @@
   </div>
 
   <div class="grid grid-cols-2 gap-3">
-    <div>
+    <div class="flex flex-col items-start justify-center gap-1">
+      <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Font Color</label>
+      <input type="color" [value]="c.textColor" (input)="update('textColor', $event)"
+             class="w-full h-[38px] border-2 border-slate-100 rounded-xl p-1 bg-white cursor-pointer" />
+    </div>
+    <div class="flex flex-col items-start justify-center gap-1">
+      <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Font Size</label>
+      <input type="number" [value]="c.fontSize" (input)="update('fontSize', $event)"
+             class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm" />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-3">
+    <div class="flex flex-col items-start justify-center gap-1">
       <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Weight</label>
       <select [value]="c.fontWeight" (change)="update('fontWeight', $event)"
               class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm bg-white">
@@ -18,7 +31,7 @@
         <option value="900">Extra Bold</option>
       </select>
     </div>
-    <div>
+    <div class="flex flex-col items-start justify-center gap-1">
       <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Style</label>
       <select [value]="c.fontStyle" (change)="update('fontStyle', $event)"
               class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm bg-white">
@@ -29,12 +42,12 @@
   </div>
 
   <div class="grid grid-cols-2 gap-3">
-    <div>
+    <div class="flex flex-col items-start justify-center gap-1">
       <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Letter Spacing</label>
       <input type="number" [value]="c.letterSpacing" (input)="update('letterSpacing', $event)"
              class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm" />
     </div>
-    <div>
+    <div class="flex flex-col items-start justify-center gap-1">
       <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Word Spacing</label>
       <input type="number" [value]="c.wordSpacing" (input)="update('wordSpacing', $event)"
              class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm" />

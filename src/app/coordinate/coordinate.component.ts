@@ -1,4 +1,3 @@
-// src/app/coordinate/coordinate.component.ts
 import { Component } from '@angular/core';
 import { ShapeService } from '../core/services/shape.service';
 

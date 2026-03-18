@@ -1,24 +1,44 @@
-<div class="space-y-4" *ngIf="config$ | async as c">
+<div
+  class="space-y-4 pt-4 border-t border-slate-200"
+  *ngIf="config$ | async as c"
+>
   <div class="flex items-center justify-between rounded-xl">
-    <label class="block text-xs font-bold uppercase text-gray-500">Show Guide Path</label>
-    <button (click)="togglePath()" 
-            [style.background-color]="c.showPath ? '#ff9100' : '#cbd5e1'"
-            class="w-12 h-6 rounded-full relative transition-colors">
-      <div [style.right.px]="c.showPath ? 4 : 24"
-           class="absolute top-1 w-4 h-4 bg-white rounded-full transition-all shadow-sm"></div>
+    <label class="block text-xs font-bold uppercase text-gray-500"
+      >Show Guide Path</label
+    >
+    <button
+      (click)="togglePath()"
+      [style.background-color]="c.showPath ? '#ff9100' : '#cbd5e1'"
+      class="w-12 h-6 rounded-full relative transition-colors"
+    >
+      <div
+        [style.right.px]="c.showPath ? 4 : 24"
+        class="absolute top-1 w-4 h-4 bg-white rounded-full transition-all shadow-sm"
+      ></div>
     </button>
   </div>
 
   <div class="grid grid-cols-2 gap-3">
-    <div>
-      <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1">Path Color</label>
-      <input type="color" [value]="c.pathColor" (input)="update('pathColor', $event)"
-             class="w-full h-[34px] border-2 border-slate-100 rounded-lg cursor-pointer p-1 bg-white" />
+    <div class="flex flex-col items-start justify-center gap-1">
+      <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1"
+        >Path Color</label
+      >
+      <input
+        type="color"
+        [value]="c.pathColor"
+        (input)="update('pathColor', $event)"
+        class="w-full h-[34px] border-2 border-slate-100 rounded-lg cursor-pointer p-1 bg-white"
+      />
     </div>
-    <div>
-      <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1">Stroke Type</label>
-      <select [value]="c.pathStrokeType" (change)="update('pathStrokeType', $event)"
-              class="w-full border-2 border-slate-100 rounded-lg p-1.5 text-xs bg-white">
+    <div class="flex flex-col items-start justify-center gap-1">
+      <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1"
+        >Stroke Type</label
+      >
+      <select
+        [value]="c.pathStrokeType"
+        (change)="update('pathStrokeType', $event)"
+        class="w-full border-2 border-slate-100 rounded-lg p-1.5 text-xs bg-white"
+      >
         <option value="solid">Solid</option>
         <option value="dashed">Dashed</option>
         <option value="dotted">Dotted</option>
@@ -27,15 +47,27 @@
   </div>
 
   <div class="grid grid-cols-2 gap-3">
-    <div>
-      <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Path Offset (%)</label>
-      <input type="number" [value]="c.startOffset" (input)="update('startOffset', $event)"
-             class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm" />
+    <div class="flex flex-col items-start justify-center gap-1">
+      <label class="block text-xs font-bold uppercase text-gray-500 mb-1"
+        >Path Offset (%)</label
+      >
+      <input
+        type="number"
+        [value]="c.startOffset"
+        (input)="update('startOffset', $event)"
+        class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm"
+      />
     </div>
-    <div>
-      <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Vertical Shift (dy)</label>
-      <input type="number" [value]="c.textDy" (input)="update('textDy', $event)"
-             class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm" />
+    <div class="flex flex-col items-start justify-center gap-1">
+      <label class="block text-xs font-bold uppercase text-gray-500 mb-1"
+        >Vertical Shift (dy)</label
+      >
+      <input
+        type="number"
+        [value]="c.textDy"
+        (input)="update('textDy', $event)"
+        class="w-full border-2 border-slate-100 rounded-xl p-2 text-sm"
+      />
     </div>
   </div>
 </div>

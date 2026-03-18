@@ -1,4 +1,3 @@
-// src/app/editor/editor.component.ts
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ShapeService } from '../core/services/shape.service';
 
@@ -20,7 +19,7 @@ export class EditorComponent {
 
   constructor(private shapeService: ShapeService) {}
 
-  // This will be triggered by a global event listener or service call
+  
   show(x: number, y: number) {
     this.position = { x: x - 150, y: y - 50 };
     this.isVisible = true;

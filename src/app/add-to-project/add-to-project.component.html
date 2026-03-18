@@ -1,17 +1,56 @@
-<div class="p-4 space-y-4 bg-white border-t border-slate-100">
-  <div class="flex gap-2">
-    <button (click)="downloadSVG()"
-      class="flex-1 border py-2 rounded-xl font-bold text-[10px] uppercase tracking-widest shadow-md hover:bg-[#ff9100] hover:text-white transition-all">
-      Download SVG
+<div class="p-3 space-y-2 bg-white border-t border-slate-100">
+  <div class="flex items-center justify-between gap-2 text-xs font-normal">
+    <button
+      (click)="downloadSVG()"
+      class="border text-center rounded-md flex items-center justify-center gap-2 p-2 hover:border-[#ff9100] hover:text-[#FF9100]"
+    >
+      <span class="">Download</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="20px"
+        fill="currentColor"
+      >
+        <path
+          d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"
+        />
+      </svg>
     </button>
-    <button (click)="copyBase64()"
-      class="flex-1 border py-2 rounded-xl font-bold text-[10px] uppercase tracking-widest shadow-md hover:bg-[#ff9100] hover:text-white transition-all">
-      Copy Base64
+    <button
+      (click)="copyBase64()"
+      class="border text-center rounded-md flex items-center justify-center gap-2 p-2 hover:border-[#ff9100] hover:text-[#FF9100]"
+    >
+      <span class="">Copy</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="20px"
+        fill="currentColor"
+      >
+        <path
+          d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"
+        />
+      </svg>
+    </button>
+
+    <button
+      (click)="addToProject()"
+      class="border text-center rounded-md flex items-center justify-center gap-2 p-2 hover:border-[#ff9100] hover:text-[#FF9100]"
+    >
+      <span class="">Add To Project</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="20px"
+        fill="currentColor"
+      >
+        <path
+          d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"
+        />
+      </svg>
     </button>
   </div>
-  
-  <button (click)="addToProject()"
-    class="w-full bg-[#ff9100] text-white py-3 rounded-xl font-black text-xs uppercase tracking-[0.2em] shadow-lg hover:brightness-110 active:scale-95 transition-all">
-    Add to Project
-  </button>
 </div>

@@ -1,4 +1,3 @@
-// src/app/text/text.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ShapeService } from '../core/services/shape.service';
 

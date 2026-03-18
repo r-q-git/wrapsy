@@ -4,16 +4,16 @@
      [style.top.px]="position.y"
      (click)="$event.stopPropagation()">
   
-  <div class="bg-white p-4 rounded-2xl shadow-2xl border border-blue-200" *ngIf="config$ | async as c">
+  <div class="bg-white p-2 rounded-2xl shadow-2xl border" *ngIf="config$ | async as c">
     <textarea
       [value]="c.userInput"
       (input)="onInput($event)"
       rows="2"
-      class="w-full border-2 border-blue-50 rounded-xl p-3 text-sm outline-none focus:border-blue-400 resize-none mb-2"
+      class="w-full border-2 rounded-xl p-3 text-sm outline-none focus:border-gray-400 resize-none"
     ></textarea>
     <button
       (click)="hide()"
-      class="w-full py-2 bg-blue-600 text-white rounded-xl text-xs font-bold uppercase"
+      class="w-full py-2 bg-gray-200 text-gray-500 hover:bg-[#ff9100] hover:text-white rounded-md text-xs font-semibold uppercase"
     >
       Update Text
     </button>

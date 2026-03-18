@@ -1,4 +1,3 @@
-// src/app/core/services/shape.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -29,11 +28,11 @@ export interface SvgConfig {
 export class ShapeService {
   private initialState: SvgConfig = {
     selectedShapeId: 'circle-1',
-    userInput: 'Click Here To Edit!',
+    userInput: 'Click Here To Edit Text!',
     fontSize: 14,
-    textColor: '#0f172a',
+    textColor: '#ff9100',
     startOffset: 50,
-    textDy: 1,
+    textDy: 15,
     showPath: true,
     pathColor: '#ff9100',
     pathStrokeType: 'solid',
@@ -53,7 +52,6 @@ export class ShapeService {
   private configSubject = new BehaviorSubject<SvgConfig>(this.initialState);
   config$ = this.configSubject.asObservable();
 
-  // Observable for the list of shapes (including uploaded ones)
   private shapesSubject = new BehaviorSubject<any[]>([]);
   shapes$ = this.shapesSubject.asObservable();
 
